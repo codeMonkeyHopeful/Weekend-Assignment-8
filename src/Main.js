@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Options from "./Options";
 class Main extends Component {
   constructor() {
     super();
@@ -21,7 +22,21 @@ class Main extends Component {
       });
   }
   render() {
-    return <div>{/* users */}</div>;
+    return (
+      <div>
+        {this.state.users.map(user => {
+          return (
+            <div>
+              {user.name}
+              <div>{/*insert manager compoennt here*/}</div>
+              <div>
+                <Options key={user.id} users={this.state.users} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
 
